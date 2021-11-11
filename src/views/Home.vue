@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <template v-for="i in [...Array(49).keys()]" v-bind:key="i">
+        <Question v-bind:number="i" />
+         <hr class="small">
+         <br>
+
+      </template>
+    </ul>
+  <div>
+  <button v-on:click="computeAQ">Calculate AQ</button>
+   AQ={{$store.state.AQ}}
+  </div>  
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Question from "@/components/Question.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    Question,
+  },
+  methods:{
+    computeAQ(){
+      this.$store.commit('computeAQ')
+    }
   }
-}
+};
 </script>
+<style scoped>
+.small{
+  width:70%;
+}
+</style>
