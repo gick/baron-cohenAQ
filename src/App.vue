@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Quotient Autistique de Baron-Cohen</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">A propos</router-link>
   </div>
   <router-view/>
 </template>
